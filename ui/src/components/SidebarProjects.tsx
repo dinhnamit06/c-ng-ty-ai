@@ -28,6 +28,8 @@ import {
 } from "@/components/ui/collapsible";
 import { PluginSlotMount, usePluginSlots } from "@/plugins/slots";
 import type { Project } from "@paperclipai/shared";
+import { HelpHint } from "./HelpHint";
+import { sidebarHelpText } from "@/lib/viHelp";
 
 type ProjectSidebarSlot = ReturnType<typeof usePluginSlots>["slots"][number];
 
@@ -186,7 +188,10 @@ export function SidebarProjects() {
               )}
             />
             <span className="text-[10px] font-medium uppercase tracking-widest font-mono text-muted-foreground/60">
-              Projects
+              <span className="inline-flex items-center gap-1">
+                <span>Projects</span>
+                <HelpHint text={sidebarHelpText.projects} className="h-3.5 w-3.5 text-[9px]" />
+              </span>
             </span>
           </CollapsibleTrigger>
           <button

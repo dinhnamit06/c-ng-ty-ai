@@ -2,6 +2,7 @@ import { NavLink } from "@/lib/router";
 import { cn } from "../lib/utils";
 import { useSidebar } from "../context/SidebarContext";
 import type { LucideIcon } from "lucide-react";
+import { HelpHint } from "./HelpHint";
 
 interface SidebarNavItemProps {
   to: string;
@@ -15,6 +16,7 @@ interface SidebarNavItemProps {
   textBadgeTone?: "default" | "amber";
   alert?: boolean;
   liveCount?: number;
+  helpText?: string;
 }
 
 export function SidebarNavItem({
@@ -29,6 +31,7 @@ export function SidebarNavItem({
   textBadgeTone = "default",
   alert = false,
   liveCount,
+  helpText,
 }: SidebarNavItemProps) {
   const { isMobile, setSidebarOpen } = useSidebar();
 
@@ -53,7 +56,10 @@ export function SidebarNavItem({
           <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-red-500 shadow-[0_0_0_2px_hsl(var(--background))]" />
         )}
       </span>
-      <span className="flex-1 truncate">{label}</span>
+      <span className="flex min-w-0 flex-1 items-center gap-1">
+        <span className="truncate">{label}</span>
+        {helpText ? <HelpHint text={helpText} className="h-3.5 w-3.5 text-[9px]" /> : null}
+      </span>
       {textBadge && (
         <span
           className={cn(

@@ -23,8 +23,10 @@ import { Bot, CircleDot, DollarSign, ShieldCheck, LayoutDashboard, PauseCircle }
 import { ActiveAgentsPanel } from "../components/ActiveAgentsPanel";
 import { ChartCard, RunActivityChart, PriorityChart, IssueStatusChart, SuccessRateChart } from "../components/ActivityCharts";
 import { PageSkeleton } from "../components/PageSkeleton";
+import { HelpHint } from "../components/HelpHint";
 import type { Agent, Issue } from "@paperclipai/shared";
 import { PluginSlotOutlet } from "@/plugins/slots";
+import { dashboardHelpText } from "@/lib/viHelp";
 
 function getRecentIssues(issues: Issue[]): Issue[] {
   return [...issues]
@@ -235,6 +237,7 @@ export function Dashboard() {
               value={data.agents.active + data.agents.running + data.agents.paused + data.agents.error}
               label="Agents Enabled"
               to="/agents"
+              helpText={dashboardHelpText.agentsEnabled}
               description={
                 <span>
                   {data.agents.running} running{", "}
@@ -248,6 +251,7 @@ export function Dashboard() {
               value={data.tasks.inProgress}
               label="Tasks In Progress"
               to="/issues"
+              helpText={dashboardHelpText.tasksInProgress}
               description={
                 <span>
                   {data.tasks.open} open{", "}
@@ -260,6 +264,7 @@ export function Dashboard() {
               value={formatCents(data.costs.monthSpendCents)}
               label="Month Spend"
               to="/costs"
+              helpText={dashboardHelpText.monthSpend}
               description={
                 <span>
                   {data.costs.monthBudgetCents > 0
@@ -273,6 +278,7 @@ export function Dashboard() {
               value={data.pendingApprovals + data.budgets.pendingApprovals}
               label="Pending Approvals"
               to="/approvals"
+              helpText={dashboardHelpText.pendingApprovals}
               description={
                 <span>
                   {data.budgets.pendingApprovals > 0
@@ -284,16 +290,16 @@ export function Dashboard() {
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <ChartCard title="Run Activity" subtitle="Last 14 days">
+            <ChartCard title="Run Activity" subtitle="Last 14 days" helpText={dashboardHelpText.runActivity}>
               <RunActivityChart runs={runs ?? []} />
             </ChartCard>
-            <ChartCard title="Issues by Priority" subtitle="Last 14 days">
+            <ChartCard title="Issues by Priority" subtitle="Last 14 days" helpText={dashboardHelpText.issuesByPriority}>
               <PriorityChart issues={issues ?? []} />
             </ChartCard>
-            <ChartCard title="Issues by Status" subtitle="Last 14 days">
+            <ChartCard title="Issues by Status" subtitle="Last 14 days" helpText={dashboardHelpText.issuesByStatus}>
               <IssueStatusChart issues={issues ?? []} />
             </ChartCard>
-            <ChartCard title="Success Rate" subtitle="Last 14 days">
+            <ChartCard title="Success Rate" subtitle="Last 14 days" helpText={dashboardHelpText.successRate}>
               <SuccessRateChart runs={runs ?? []} />
             </ChartCard>
           </div>
@@ -310,7 +316,10 @@ export function Dashboard() {
             {recentActivity.length > 0 && (
               <div className="min-w-0">
                 <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3">
-                  Recent Activity
+                  <span className="inline-flex items-center gap-1">
+                    <span>Recent Activity</span>
+                    <HelpHint text={dashboardHelpText.recentActivity} />
+                  </span>
                 </h3>
                 <div className="border border-border divide-y divide-border overflow-hidden">
                   {recentActivity.map((event) => (
@@ -330,7 +339,10 @@ export function Dashboard() {
             {/* Recent Tasks */}
             <div className="min-w-0">
               <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3">
-                Recent Tasks
+                <span className="inline-flex items-center gap-1">
+                  <span>Recent Tasks</span>
+                  <HelpHint text={dashboardHelpText.recentTasks} />
+                </span>
               </h3>
               {recentIssues.length === 0 ? (
                 <div className="border border-border p-4">

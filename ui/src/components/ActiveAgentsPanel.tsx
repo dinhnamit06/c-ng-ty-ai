@@ -11,6 +11,8 @@ import { ExternalLink } from "lucide-react";
 import { Identity } from "./Identity";
 import { RunTranscriptView } from "./transcript/RunTranscriptView";
 import { useLiveRunTranscripts } from "./transcript/useLiveRunTranscripts";
+import { HelpHint } from "./HelpHint";
+import { dashboardHelpText } from "@/lib/viHelp";
 
 const MIN_DASHBOARD_RUNS = 4;
 
@@ -52,7 +54,10 @@ export function ActiveAgentsPanel({ companyId }: ActiveAgentsPanelProps) {
   return (
     <div>
       <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-        Agents
+        <span className="inline-flex items-center gap-1">
+          <span>Agents</span>
+          <HelpHint text={dashboardHelpText.agentsPanel} />
+        </span>
       </h3>
       {runs.length === 0 ? (
         <div className="rounded-xl border border-border p-4">

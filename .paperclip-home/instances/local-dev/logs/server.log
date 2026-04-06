@@ -1,0 +1,11 @@
+[04:06:34] INFO: Using embedded PostgreSQL because no DATABASE_URL set (dataDir=C:\Users\Admin\Desktop\CÁC TOOL TÂM ĐẮC\paperclip\.paperclip-home\instances\local-dev\db, port=54329)
+[04:06:34] ERROR: Paperclip server failed to start 
+    err: {
+      "type": "Error",
+      "message": "Failed to initialize embedded PostgreSQL cluster in C:\\Users\\Admin\\Desktop\\CÁC TOOL TÂM ĐẮC\\paperclip\\.paperclip-home\\instances\\local-dev\\db on port 54329: Postgres init script exited with code 1. Please check the logs for extra info. The data directory might already exist.",
+      "stack":
+          Error: Failed to initialize embedded PostgreSQL cluster in C:\Users\Admin\Desktop\CÁC TOOL TÂM ĐẮC\paperclip\.paperclip-home\instances\local-dev\db on port 54329: Postgres init script exited with code 1. Please check the logs for extra info. The data directory might already exist.
+              at formatEmbeddedPostgresError (C:\Users\Admin\Desktop\CÁC TOOL TÂM ĐẮC\paperclip\packages\db\src\embedded-postgres-error.ts:88:10)
+              at startServer (C:\Users\Admin\Desktop\CÁC TOOL TÂM ĐẮC\paperclip\server\src\index.ts:386:19)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    }

@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "@/lib/router";
+import { HelpHint } from "./HelpHint";
 
 interface MetricCardProps {
   icon: LucideIcon;
@@ -9,9 +10,10 @@ interface MetricCardProps {
   description?: ReactNode;
   to?: string;
   onClick?: () => void;
+  helpText?: string;
 }
 
-export function MetricCard({ icon: Icon, value, label, description, to, onClick }: MetricCardProps) {
+export function MetricCard({ icon: Icon, value, label, description, to, onClick, helpText }: MetricCardProps) {
   const isClickable = !!(to || onClick);
 
   const inner = (
@@ -21,8 +23,9 @@ export function MetricCard({ icon: Icon, value, label, description, to, onClick 
           <p className="text-2xl sm:text-3xl font-semibold tracking-tight tabular-nums">
             {value}
           </p>
-          <p className="text-xs sm:text-sm font-medium text-muted-foreground mt-1">
-            {label}
+          <p className="mt-1 flex items-center gap-1 text-xs font-medium text-muted-foreground sm:text-sm">
+            <span>{label}</span>
+            {helpText ? <HelpHint text={helpText} /> : null}
           </p>
           {description && (
             <div className="text-xs text-muted-foreground/70 mt-1.5 hidden sm:block">{description}</div>

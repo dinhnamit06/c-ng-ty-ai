@@ -1,0 +1,31 @@
+export const sidebarHelpText = {
+  newIssue: "Tạo một công việc mới để giao cho agent hoặc để board theo dõi.",
+  dashboard: "Bảng tổng quan của công ty: agent đang chạy, task đang mở, chi phí và các mục cần duyệt.",
+  inbox: "Hộp thư tổng hợp thông báo, cập nhật mới và các mục cần bạn chú ý.",
+  work: "Nhóm chức năng liên quan trực tiếp tới công việc đang được lập kế hoạch hoặc thực thi.",
+  issues: "Danh sách task/công việc của công ty. Đây là nơi theo dõi trạng thái, ưu tiên và người xử lý.",
+  routines: "Các công việc lặp lại theo lịch, ví dụ chạy hằng ngày hoặc theo tuần.",
+  goals: "Mục tiêu ở cấp công ty, team hoặc agent để mọi task đều bám vào một mục đích rõ ràng.",
+  projects: "Nhóm các task theo sáng kiến hoặc sản phẩm để dễ quản lý tiến độ.",
+  agents: "Danh sách nhân sự AI của công ty, gồm vai trò, trạng thái và công việc đang chạy.",
+  company: "Nhóm chức năng quản trị ở cấp công ty, không chỉ riêng từng task.",
+  org: "Sơ đồ tổ chức: ai báo cáo cho ai và cấu trúc đội ngũ trong công ty.",
+  skills: "Các kỹ năng, hướng dẫn hoặc năng lực mà company và agent có thể dùng lại.",
+  costs: "Theo dõi ngân sách, chi phí sử dụng model và các cảnh báo vượt ngưỡng.",
+  activity: "Dòng sự kiện ghi lại các thay đổi và hành động quan trọng trong công ty.",
+  settings: "Thiết lập của công ty như cấu hình, export/import và hành vi vận hành.",
+} as const;
+
+export const dashboardHelpText = {
+  agentsPanel: "Các agent đang hoặc vừa mới chạy gần đây, kèm task liên quan và transcript ngắn.",
+  agentsEnabled: "Tổng số agent hiện khả dụng trong công ty, gồm cả agent đang chạy, tạm dừng hoặc lỗi.",
+  tasksInProgress: "Số task đang được thực hiện ngay lúc này.",
+  monthSpend: "Tổng chi phí đã dùng trong tháng hiện tại so với ngân sách tháng nếu có.",
+  pendingApprovals: "Các yêu cầu đang chờ board phê duyệt, bao gồm cả override ngân sách.",
+  runActivity: "Mức độ hoạt động của các lần heartbeat/run trong 14 ngày gần đây.",
+  issuesByPriority: "Phân bố số task mới theo mức ưu tiên trong 14 ngày gần đây.",
+  issuesByStatus: "Phân bố số task theo trạng thái như todo, in progress, blocked hoặc done.",
+  successRate: "Tỷ lệ các lần chạy thành công trong 14 ngày gần đây.",
+  recentActivity: "10 hoạt động mới nhất trong công ty để bạn biết hệ thống vừa thay đổi gì.",
+  recentTasks: "Các task được cập nhật gần đây nhất để bạn bám tiến độ nhanh.",
+} as const;

@@ -19,6 +19,8 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import type { Agent } from "@paperclipai/shared";
+import { HelpHint } from "./HelpHint";
+import { sidebarHelpText } from "@/lib/viHelp";
 export function SidebarAgents() {
   const [open, setOpen] = useState(true);
   const { selectedCompanyId } = useCompany();
@@ -81,7 +83,10 @@ export function SidebarAgents() {
               )}
             />
             <span className="text-[10px] font-medium uppercase tracking-widest font-mono text-muted-foreground/60">
-              Agents
+              <span className="inline-flex items-center gap-1">
+                <span>Agents</span>
+                <HelpHint text={sidebarHelpText.agents} className="h-3.5 w-3.5 text-[9px]" />
+              </span>
             </span>
           </CollapsibleTrigger>
           <button
